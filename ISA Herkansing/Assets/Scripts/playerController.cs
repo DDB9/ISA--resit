@@ -6,8 +6,8 @@ public class playerController: MonoBehaviour {
 	
 	Vector2 mouseLook;
 	Vector2 smoothV;
-	public float sensitivity = 5.0f;
-	public float smoothing = 2.0f;
+	public float sensitivity = 3.0f;
+	public float smoothing = 1.125f;
 
 	GameObject player;
 	Animator gunAnimator;
@@ -35,9 +35,12 @@ public class playerController: MonoBehaviour {
 		player.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, player.transform.up);
 
 		if (Input.GetMouseButton(0)){ 
-			gunAnimator.SetInteger("gun_state", 1);
-			if (this.gunAnimator.GetCurrentAnimatorStateInfo(0).IsName("gun_shoot")) gunAnimator.SetInteger("gun_state", 2); // This prevents anything from happening while the animation is playing,
-																															// Which is not exactly what we want. We want the animation to play, then switch back.
+			gunAnimator.SetInteger("gun_state", 1); 
+			
 		}
+	}
+
+	public void resetIdle(){
+		gunAnimator.SetInteger("gun_state", 0);
 	}
 }
