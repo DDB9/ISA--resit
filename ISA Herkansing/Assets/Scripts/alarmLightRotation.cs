@@ -6,13 +6,6 @@ public class alarmLightRotation : MonoBehaviour {
 
 	public float rotSpeed = 10;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		transform.Rotate(Vector3.right * Time.deltaTime * rotSpeed);
-	}
+    // Once per frame, the light rotates a degree to the right, varying through rotSpeed;
+    void Update() { transform.Rotate(Vector3.right * Time.deltaTime * rotSpeed); }
 }

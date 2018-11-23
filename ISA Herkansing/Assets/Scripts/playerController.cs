@@ -3,44 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerController: MonoBehaviour {
-	
-	Vector2 mouseLook;
-	Vector2 smoothV;
-	public float sensitivity = 3.0f;
-	public float smoothing = 1.125f;
 
-	GameObject player;
-	Animator gunAnimator;
+    public float walkSpeed = 20f;
+    public float sprintSpeed;
+    public GameObject gun;
 
-	// Use this for initialization
-	void Start (){
-		Cursor.lockState = CursorLockMode.Locked;
+    [SerializeField]
+    private float speed = 20;
 
-		player = this.transform.parent.gameObject;
-		gunAnimator = GetComponentInChildren<Animator>();
-	}
-	
+    Animator gunAnimator;
+
+    // Use this for initialization
+    void Start()
+    {
+        sprintSpeed = walkSpeed * 1.50f;
+        Cursor.lockState = CursorLockMode.Locked;
+        gunAnimator = gun.GetComponent<Animator>();
+    }
+
 	// Update is called once per frame
-	void Update (){
-		var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+	void Update ()
+    {          
+        // PLAYER MOVEMENT
+        float translation = Input.GetAxis("Vertical") * speed;
+        float straffe = Input.GetAxis("Horizontal") * speed;
+        translation *= Time.deltaTime;
+        straffe *= Time.deltaTime;
 
-		md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
-		smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
-		smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
-		mouseLook += smoothV;
+        transform.Translate(straffe, 0, translation);
 
-		mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f);
+        // Makes the cursor re-appear for menu purposes.
+        if (Input.GetKeyDown("escape"))
+            Cursor.lockState = CursorLockMode.None;
 
-		transform.localRotation = Quaternion.AngleAxis(angle: -mouseLook.y, axis: Vector3.right);
-		player.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, player.transform.up);
+        // If left-shift is pressed, player runs. Else, it walks.
+        if (Input.GetKey(KeyCode.LeftShift)) speed = sprintSpeed;
+        else speed = walkSpeed;
 
-		if (Input.GetMouseButton(0)){ 
-			gunAnimator.SetInteger("gun_state", 1); 
-			
-		}
+        // Plays the shooting animation for the gun if the player clicks the left mouse button.
+        if (Input.GetMouseButton(0)) gunAnimator.SetInteger("gun_state", 1);
 	}
 
-	public void resetIdle(){
+	public void resetIdle()
+	{
+        // Resets the animation state to the idle animation.
 		gunAnimator.SetInteger("gun_state", 0);
 	}
+
 }
