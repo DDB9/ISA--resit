@@ -36,16 +36,17 @@ public class Enemy : MonoBehaviour {
 
 	void OnTriggerExit(Collider other) { if (other.tag == "Player") playerInSight = false; }
 
-	public void PlayerInRange()
+    public void PlayerInRange()
     {
-		Vector3 playerPos = player.transform.position;
-		playerPos.y = transform.position.y;
-		transform.LookAt(playerPos);
+        Vector3 playerPos = player.transform.position;
+        playerPos.y = transform.position.y;
+        transform.LookAt(playerPos);
 
-		if (distanceFromPlayer >= meleeRange) transform.position += transform.forward * enemySpeed * Time.deltaTime;
-        if (distanceFromPlayer <= meleeRange) dealDamage();
+        if (distanceFromPlayer >= meleeRange) transform.position += transform.forward * enemySpeed * Time.deltaTime;
+        if (distanceFromPlayer <= meleeRange) DealDamage();
+    }
 
-    public virtual void dealDamage()
+    public virtual void DealDamage()
     {
         if (Time.time > attackRate)
         {

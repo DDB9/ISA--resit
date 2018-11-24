@@ -124,8 +124,8 @@ GameObject:
   - component: {fileID: 86373546}
   - component: {fileID: 86373544}
   - component: {fileID: 86373548}
-  - component: {fileID: 86373549}
   - component: {fileID: 86373543}
+  - component: {fileID: 86373545}
   m_Layer: 0
   m_Name: Enemy_Ghost1
   m_TagString: Untagged
@@ -157,6 +157,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &86373545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86373542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9432ff92b88e541b022a17745c2213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
+  enemySpeed: 10
+  meleeRange: 5
+  attackRate: 5
+  meleeTimer: 2
+  distanceFromPlayer: 0
+  ghostSP1: {fileID: 1719393255}
+  ghostSP2: {fileID: 1390476199}
+  ghostSP3: {fileID: 787282107}
 --- !u!212 &86373546
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,26 +251,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &86373549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 86373542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8617f2c9f23304d9e25a21b546ec45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 434948748}
-  enemySpeed: 10
-  meleeRange: 5
-  attackRate: 50
-  meleeTimer: 5
-  ghostSP1: {fileID: 0}
-  ghostSP2: {fileID: 0}
-  ghostSP3: {fileID: 0}
-  distanceFromPlayer: 0
 --- !u!1 &99484233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,9 +1424,6 @@ MonoBehaviour:
   meleeRange: 0
   attackRate: 0
   meleeTimer: 0
-  ghostSP1: {fileID: 0}
-  ghostSP2: {fileID: 0}
-  ghostSP3: {fileID: 0}
   distanceFromPlayer: 0
 --- !u!4 &482950315
 Transform:
@@ -6985,8 +6982,8 @@ GameObject:
   - component: {fileID: 1705665484}
   - component: {fileID: 1705665482}
   - component: {fileID: 1705665486}
-  - component: {fileID: 1705665487}
   - component: {fileID: 1705665481}
+  - component: {fileID: 1705665483}
   m_Layer: 0
   m_Name: Enemy_Ghost3
   m_TagString: Untagged
@@ -7018,6 +7015,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1705665483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1705665480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9432ff92b88e541b022a17745c2213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
+  enemySpeed: 10
+  meleeRange: 5
+  attackRate: 5
+  meleeTimer: 2
+  distanceFromPlayer: 0
+  ghostSP1: {fileID: 1719393255}
+  ghostSP2: {fileID: 1390476199}
+  ghostSP3: {fileID: 787282107}
 --- !u!212 &1705665484
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7092,26 +7109,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1705665487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1705665480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8617f2c9f23304d9e25a21b546ec45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 434948748}
-  enemySpeed: 10
-  meleeRange: 5
-  attackRate: 50
-  meleeTimer: 5
-  ghostSP1: {fileID: 0}
-  ghostSP2: {fileID: 0}
-  ghostSP3: {fileID: 0}
-  distanceFromPlayer: 0
 --- !u!1 &1719393255
 GameObject:
   m_ObjectHideFlags: 0
@@ -8439,8 +8436,8 @@ GameObject:
   - component: {fileID: 2001141252}
   - component: {fileID: 2001141250}
   - component: {fileID: 2001141254}
-  - component: {fileID: 2001141255}
   - component: {fileID: 2001141249}
+  - component: {fileID: 2001141251}
   m_Layer: 0
   m_Name: Enemy_Ghost2
   m_TagString: Untagged
@@ -8472,6 +8469,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2001141251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001141248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9432ff92b88e541b022a17745c2213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
+  enemySpeed: 10
+  meleeRange: 5
+  attackRate: 5
+  meleeTimer: 2
+  distanceFromPlayer: 0
+  ghostSP1: {fileID: 1719393255}
+  ghostSP2: {fileID: 1390476199}
+  ghostSP3: {fileID: 787282107}
 --- !u!212 &2001141252
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8546,26 +8563,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2001141255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2001141248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8617f2c9f23304d9e25a21b546ec45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 434948748}
-  enemySpeed: 10
-  meleeRange: 5
-  attackRate: 50
-  meleeTimer: 5
-  ghostSP1: {fileID: 0}
-  ghostSP2: {fileID: 0}
-  ghostSP3: {fileID: 0}
-  distanceFromPlayer: 0
 --- !u!1 &2054221254
 GameObject:
   m_ObjectHideFlags: 0
