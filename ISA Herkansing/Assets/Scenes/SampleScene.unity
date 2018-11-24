@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 86373547}
   - component: {fileID: 86373546}
-  - component: {fileID: 86373545}
   - component: {fileID: 86373544}
   - component: {fileID: 86373548}
   - component: {fileID: 86373549}
@@ -158,27 +157,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &86373545
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 86373542}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.25
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.32
-  m_BaseOffset: 0.16
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!212 &86373546
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -267,7 +245,7 @@ MonoBehaviour:
   player: {fileID: 434948748}
   enemyRBody: {fileID: 86373548}
   enemySpeed: 5
-  meleeRange: 1
+  meleeRange: 10
   attackRate: 2
   meleeTimer: 5
 --- !u!1 &99484233
@@ -368,9 +346,11 @@ GameObject:
   - component: {fileID: 114739234}
   - component: {fileID: 114739233}
   - component: {fileID: 114739232}
+  - component: {fileID: 114739237}
+  - component: {fileID: 114739236}
   m_Layer: 0
   m_Name: wall_plane (13)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,6 +424,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &114739236
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 114739231}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114739237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 114739231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &115855641
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,9 +612,11 @@ GameObject:
   - component: {fileID: 214706264}
   - component: {fileID: 214706263}
   - component: {fileID: 214706262}
+  - component: {fileID: 214706267}
+  - component: {fileID: 214706266}
   m_Layer: 0
   m_Name: wall_plane (9)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -684,6 +690,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &214706266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 214706261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &214706267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 214706261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &264125001
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,9 +812,11 @@ GameObject:
   - component: {fileID: 277603607}
   - component: {fileID: 277603606}
   - component: {fileID: 277603605}
+  - component: {fileID: 277603610}
+  - component: {fileID: 277603609}
   m_Layer: 0
   m_Name: wall_plane (14)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -858,6 +890,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+--- !u!65 &277603609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277603604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &277603610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277603604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &290546255
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,9 +925,11 @@ GameObject:
   - component: {fileID: 290546259}
   - component: {fileID: 290546258}
   - component: {fileID: 290546257}
+  - component: {fileID: 290546261}
+  - component: {fileID: 290546260}
   m_Layer: 0
   m_Name: wall_plane (39)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -945,6 +1003,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 290546255}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &290546260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 290546255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &290546261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 290546255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &362003580
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,9 +1038,11 @@ GameObject:
   - component: {fileID: 362003583}
   - component: {fileID: 362003582}
   - component: {fileID: 362003581}
+  - component: {fileID: 362003586}
+  - component: {fileID: 362003585}
   m_Layer: 0
   m_Name: wall_plane (15)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1032,6 +1116,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!65 &362003585
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362003580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &362003586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362003580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &427897596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1237,7 @@ GameObject:
   - component: {fileID: 434948749}
   - component: {fileID: 434948750}
   - component: {fileID: 434948751}
+  - component: {fileID: 434948753}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1143,7 +1252,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 434948748}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -21.45, y: 15.63, z: -20.05}
+  m_LocalPosition: {x: 39.7, y: 15.78, z: 27.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2096395316}
@@ -1160,7 +1269,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.59
-  m_Height: 6.029937
+  m_Height: 6
   m_Direction: 1
   m_Center: {x: 0, y: -2.5508485, z: 0}
 --- !u!114 &434948751
@@ -1178,6 +1287,21 @@ MonoBehaviour:
   sprintSpeed: 0
   gun: {fileID: 658486232}
   speed: 20
+--- !u!54 &434948753
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 434948748}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 1
 --- !u!1 &467390428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,9 +1711,11 @@ GameObject:
   - component: {fileID: 550821268}
   - component: {fileID: 550821267}
   - component: {fileID: 550821266}
+  - component: {fileID: 550821270}
+  - component: {fileID: 550821269}
   m_Layer: 0
   m_Name: wall_plane (28)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1663,6 +1789,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 550821264}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &550821269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 550821264}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &550821270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 550821264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &567011465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,9 +1824,11 @@ GameObject:
   - component: {fileID: 567011469}
   - component: {fileID: 567011468}
   - component: {fileID: 567011467}
+  - component: {fileID: 567011471}
+  - component: {fileID: 567011470}
   m_Layer: 0
   m_Name: wall_plane (26)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1750,6 +1902,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 567011465}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &567011470
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567011465}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &567011471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567011465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &573095124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,9 +1937,11 @@ GameObject:
   - component: {fileID: 573095128}
   - component: {fileID: 573095127}
   - component: {fileID: 573095126}
+  - component: {fileID: 573095130}
+  - component: {fileID: 573095129}
   m_Layer: 0
   m_Name: wall_plane (35)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1837,6 +2015,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 573095124}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &573095129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 573095124}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &573095130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 573095124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &616787136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,9 +2137,11 @@ GameObject:
   - component: {fileID: 626843218}
   - component: {fileID: 626843217}
   - component: {fileID: 626843216}
+  - component: {fileID: 626843220}
+  - component: {fileID: 626843219}
   m_Layer: 0
   m_Name: wall_plane (23)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2011,6 +2215,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 626843214}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &626843219
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626843214}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &626843220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626843214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &628794921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,9 +2250,11 @@ GameObject:
   - component: {fileID: 628794924}
   - component: {fileID: 628794923}
   - component: {fileID: 628794922}
+  - component: {fileID: 628794927}
+  - component: {fileID: 628794926}
   m_Layer: 0
   m_Name: wall_plane
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2098,6 +2328,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &628794926
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 628794921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &628794927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 628794921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &638443455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,9 +2363,11 @@ GameObject:
   - component: {fileID: 638443458}
   - component: {fileID: 638443457}
   - component: {fileID: 638443456}
+  - component: {fileID: 638443461}
+  - component: {fileID: 638443460}
   m_Layer: 0
   m_Name: wall_plane (11)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2185,6 +2441,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &638443460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 638443455}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &638443461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 638443455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &647116205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,9 +2476,11 @@ GameObject:
   - component: {fileID: 647116209}
   - component: {fileID: 647116208}
   - component: {fileID: 647116207}
+  - component: {fileID: 647116211}
+  - component: {fileID: 647116210}
   m_Layer: 0
   m_Name: wall_plane (33)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2272,6 +2554,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 647116205}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &647116210
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 647116205}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &647116211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 647116205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &658486232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,9 +2695,11 @@ GameObject:
   - component: {fileID: 665510608}
   - component: {fileID: 665510607}
   - component: {fileID: 665510606}
+  - component: {fileID: 665510610}
+  - component: {fileID: 665510609}
   m_Layer: 0
   m_Name: wall_plane (27)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2465,6 +2773,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 665510604}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &665510609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665510604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &665510610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665510604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &734192005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,9 +2808,11 @@ GameObject:
   - component: {fileID: 734192008}
   - component: {fileID: 734192007}
   - component: {fileID: 734192006}
+  - component: {fileID: 734192011}
+  - component: {fileID: 734192010}
   m_Layer: 0
   m_Name: wall_plane (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2552,6 +2886,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+--- !u!65 &734192010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734192005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &734192011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734192005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!4 &757119870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4807509023396406, guid: bc73d29813637f94c94dae67c5ea0415,
@@ -2742,9 +3100,11 @@ GameObject:
   - component: {fileID: 842762063}
   - component: {fileID: 842762062}
   - component: {fileID: 842762061}
+  - component: {fileID: 842762066}
+  - component: {fileID: 842762065}
   m_Layer: 0
   m_Name: wall_plane (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2818,6 +3178,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+--- !u!65 &842762065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 842762060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &842762066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 842762060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &843594775
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,9 +3213,11 @@ GameObject:
   - component: {fileID: 843594778}
   - component: {fileID: 843594777}
   - component: {fileID: 843594776}
+  - component: {fileID: 843594781}
+  - component: {fileID: 843594780}
   m_Layer: 0
   m_Name: wall_plane (8)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2905,6 +3291,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+--- !u!65 &843594780
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 843594775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &843594781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 843594775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &862482384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2916,9 +3326,11 @@ GameObject:
   - component: {fileID: 862482387}
   - component: {fileID: 862482386}
   - component: {fileID: 862482385}
+  - component: {fileID: 862482390}
+  - component: {fileID: 862482389}
   m_Layer: 0
   m_Name: wall_plane (16)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2992,6 +3404,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
+--- !u!65 &862482389
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862482384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &862482390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862482384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &867403708
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,9 +3700,11 @@ GameObject:
   - component: {fileID: 946476734}
   - component: {fileID: 946476733}
   - component: {fileID: 946476732}
+  - component: {fileID: 946476736}
+  - component: {fileID: 946476735}
   m_Layer: 0
   m_Name: wall_plane (38)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3340,6 +3778,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 946476730}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &946476735
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946476730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &946476736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946476730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &946987663
 GameObject:
   m_ObjectHideFlags: 0
@@ -3351,9 +3813,11 @@ GameObject:
   - component: {fileID: 946987667}
   - component: {fileID: 946987666}
   - component: {fileID: 946987665}
+  - component: {fileID: 946987669}
+  - component: {fileID: 946987668}
   m_Layer: 0
   m_Name: wall_plane (36)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3427,6 +3891,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 946987663}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &946987668
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946987663}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &946987669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946987663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &979348764
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,9 +4187,11 @@ GameObject:
   - component: {fileID: 1126760360}
   - component: {fileID: 1126760359}
   - component: {fileID: 1126760358}
+  - component: {fileID: 1126760363}
+  - component: {fileID: 1126760362}
   m_Layer: 0
   m_Name: wall_plane (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3775,6 +4265,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+--- !u!65 &1126760362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1126760357}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1126760363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1126760357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1145009704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4047,9 +4561,11 @@ GameObject:
   - component: {fileID: 1210689183}
   - component: {fileID: 1210689182}
   - component: {fileID: 1210689181}
+  - component: {fileID: 1210689186}
+  - component: {fileID: 1210689185}
   m_Layer: 0
   m_Name: wall_plane (18)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4123,6 +4639,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
+--- !u!65 &1210689185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1210689180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1210689186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1210689180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1243587053
 GameObject:
   m_ObjectHideFlags: 0
@@ -4134,9 +4674,11 @@ GameObject:
   - component: {fileID: 1243587057}
   - component: {fileID: 1243587056}
   - component: {fileID: 1243587055}
+  - component: {fileID: 1243587059}
+  - component: {fileID: 1243587058}
   m_Layer: 0
   m_Name: wall_plane (34)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4210,6 +4752,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1243587053}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1243587058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1243587053}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1243587059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1243587053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1281974788
 GameObject:
   m_ObjectHideFlags: 0
@@ -4221,9 +4787,11 @@ GameObject:
   - component: {fileID: 1281974792}
   - component: {fileID: 1281974791}
   - component: {fileID: 1281974790}
+  - component: {fileID: 1281974794}
+  - component: {fileID: 1281974793}
   m_Layer: 0
   m_Name: wall_plane (31)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4297,6 +4865,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1281974788}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1281974793
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1281974788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1281974794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1281974788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1350896009
 GameObject:
   m_ObjectHideFlags: 0
@@ -4308,9 +4900,11 @@ GameObject:
   - component: {fileID: 1350896013}
   - component: {fileID: 1350896012}
   - component: {fileID: 1350896011}
+  - component: {fileID: 1350896015}
+  - component: {fileID: 1350896014}
   m_Layer: 0
   m_Name: wall_plane (32)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4384,6 +4978,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1350896009}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1350896014
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1350896009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1350896015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1350896009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1375882996
 GameObject:
   m_ObjectHideFlags: 0
@@ -4482,9 +5100,11 @@ GameObject:
   - component: {fileID: 1393256753}
   - component: {fileID: 1393256752}
   - component: {fileID: 1393256751}
+  - component: {fileID: 1393256755}
+  - component: {fileID: 1393256754}
   m_Layer: 0
   m_Name: wall_plane (37)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4558,6 +5178,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1393256749}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1393256754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393256749}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1393256755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393256749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1395561754
 GameObject:
   m_ObjectHideFlags: 0
@@ -4569,9 +5213,11 @@ GameObject:
   - component: {fileID: 1395561758}
   - component: {fileID: 1395561757}
   - component: {fileID: 1395561756}
+  - component: {fileID: 1395561760}
+  - component: {fileID: 1395561759}
   m_Layer: 0
   m_Name: wall_plane (25)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4645,6 +5291,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1395561754}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1395561759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1395561754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1395561760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1395561754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1421888408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,9 +5390,11 @@ GameObject:
   - component: {fileID: 1435560630}
   - component: {fileID: 1435560629}
   - component: {fileID: 1435560628}
+  - component: {fileID: 1435560632}
+  - component: {fileID: 1435560631}
   m_Layer: 0
   m_Name: wall_plane (24)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4796,6 +5468,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1435560626}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1435560631
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1435560626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1435560632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1435560626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1483038292
 GameObject:
   m_ObjectHideFlags: 0
@@ -4807,9 +5503,11 @@ GameObject:
   - component: {fileID: 1483038296}
   - component: {fileID: 1483038295}
   - component: {fileID: 1483038294}
+  - component: {fileID: 1483038298}
+  - component: {fileID: 1483038297}
   m_Layer: 0
   m_Name: wall_plane (29)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4883,6 +5581,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1483038292}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1483038297
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1483038292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1483038298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1483038292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1492432705
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,9 +5703,11 @@ GameObject:
   - component: {fileID: 1495505994}
   - component: {fileID: 1495505993}
   - component: {fileID: 1495505992}
+  - component: {fileID: 1495505997}
+  - component: {fileID: 1495505996}
   m_Layer: 0
   m_Name: wall_plane (20)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5057,6 +5781,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!65 &1495505996
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495505991}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1495505997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495505991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1497469803
 GameObject:
   m_ObjectHideFlags: 0
@@ -5155,9 +5903,11 @@ GameObject:
   - component: {fileID: 1529738704}
   - component: {fileID: 1529738703}
   - component: {fileID: 1529738702}
+  - component: {fileID: 1529738706}
+  - component: {fileID: 1529738705}
   m_Layer: 0
   m_Name: wall_plane (22)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5231,6 +5981,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1529738700}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1529738705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1529738700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1529738706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1529738700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1554669826
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,9 +6190,11 @@ GameObject:
   - component: {fileID: 1619215821}
   - component: {fileID: 1619215820}
   - component: {fileID: 1619215819}
+  - component: {fileID: 1619215824}
+  - component: {fileID: 1619215823}
   m_Layer: 0
   m_Name: wall_plane (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5492,6 +6268,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &1619215823
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1619215818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1619215824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1619215818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1621351765
 GameObject:
   m_ObjectHideFlags: 0
@@ -5677,9 +6477,11 @@ GameObject:
   - component: {fileID: 1634215284}
   - component: {fileID: 1634215283}
   - component: {fileID: 1634215282}
+  - component: {fileID: 1634215287}
+  - component: {fileID: 1634215286}
   m_Layer: 0
   m_Name: wall_plane (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5753,6 +6555,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &1634215286
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1634215281}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1634215287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1634215281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1660051998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,9 +6590,11 @@ GameObject:
   - component: {fileID: 1660052001}
   - component: {fileID: 1660052000}
   - component: {fileID: 1660051999}
+  - component: {fileID: 1660052004}
+  - component: {fileID: 1660052003}
   m_Layer: 0
   m_Name: wall_plane (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5840,6 +6668,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+--- !u!65 &1660052003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1660051998}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1660052004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1660051998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1664136392
 GameObject:
   m_ObjectHideFlags: 0
@@ -6023,7 +6875,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1705665485}
   - component: {fileID: 1705665484}
-  - component: {fileID: 1705665483}
   - component: {fileID: 1705665482}
   - component: {fileID: 1705665486}
   - component: {fileID: 1705665487}
@@ -6059,27 +6910,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &1705665483
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1705665480}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.25
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.32
-  m_BaseOffset: 0.16
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!212 &1705665484
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6168,7 +6998,7 @@ MonoBehaviour:
   player: {fileID: 434948748}
   enemyRBody: {fileID: 86373548}
   enemySpeed: 5
-  meleeRange: 1
+  meleeRange: 10
   attackRate: 2
   meleeTimer: 5
 --- !u!1 &1776361965
@@ -6357,9 +7187,11 @@ GameObject:
   - component: {fileID: 1832548394}
   - component: {fileID: 1832548393}
   - component: {fileID: 1832548392}
+  - component: {fileID: 1832548397}
+  - component: {fileID: 1832548396}
   m_Layer: 0
   m_Name: wall_plane (21)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6433,6 +7265,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!65 &1832548396
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1832548391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1832548397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1832548391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1836484764
 GameObject:
   m_ObjectHideFlags: 0
@@ -6618,9 +7474,11 @@ GameObject:
   - component: {fileID: 1877811549}
   - component: {fileID: 1877811548}
   - component: {fileID: 1877811547}
+  - component: {fileID: 1877811551}
+  - component: {fileID: 1877811550}
   m_Layer: 0
   m_Name: wall_plane (30)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6694,6 +7552,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1877811545}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1877811550
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1877811545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1877811551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1877811545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1898191101
 GameObject:
   m_ObjectHideFlags: 0
@@ -6705,9 +7587,11 @@ GameObject:
   - component: {fileID: 1898191104}
   - component: {fileID: 1898191103}
   - component: {fileID: 1898191102}
+  - component: {fileID: 1898191107}
+  - component: {fileID: 1898191106}
   m_Layer: 0
   m_Name: wall_plane (10)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6781,6 +7665,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &1898191106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898191101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1898191107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898191101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1913025101
 GameObject:
   m_ObjectHideFlags: 0
@@ -6879,9 +7787,11 @@ GameObject:
   - component: {fileID: 1934821463}
   - component: {fileID: 1934821462}
   - component: {fileID: 1934821461}
+  - component: {fileID: 1934821465}
+  - component: {fileID: 1934821464}
   m_Layer: 0
   m_Name: wall_plane (40)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6955,6 +7865,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1934821459}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1934821464
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1934821459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1934821465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1934821459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1958739186
 GameObject:
   m_ObjectHideFlags: 0
@@ -7053,9 +7987,11 @@ GameObject:
   - component: {fileID: 1986794753}
   - component: {fileID: 1986794752}
   - component: {fileID: 1986794751}
+  - component: {fileID: 1986794756}
+  - component: {fileID: 1986794755}
   m_Layer: 0
   m_Name: wall_plane (17)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7129,6 +8065,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
+--- !u!65 &1986794755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986794750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1986794756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986794750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &1988871558
 GameObject:
   m_ObjectHideFlags: 0
@@ -7227,9 +8187,11 @@ GameObject:
   - component: {fileID: 1991254525}
   - component: {fileID: 1991254524}
   - component: {fileID: 1991254523}
+  - component: {fileID: 1991254528}
+  - component: {fileID: 1991254527}
   m_Layer: 0
   m_Name: wall_plane (12)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7303,6 +8265,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &1991254527
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991254522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1991254528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991254522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &2001141248
 GameObject:
   m_ObjectHideFlags: 0
@@ -7312,7 +8298,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2001141253}
   - component: {fileID: 2001141252}
-  - component: {fileID: 2001141251}
   - component: {fileID: 2001141250}
   - component: {fileID: 2001141254}
   - component: {fileID: 2001141255}
@@ -7348,27 +8333,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &2001141251
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2001141248}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.25
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.32
-  m_BaseOffset: 0.16
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!212 &2001141252
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7457,7 +8421,7 @@ MonoBehaviour:
   player: {fileID: 434948748}
   enemyRBody: {fileID: 86373548}
   enemySpeed: 5
-  meleeRange: 1
+  meleeRange: 10
   attackRate: 2
   meleeTimer: 5
 --- !u!1 &2054221254
@@ -7471,9 +8435,11 @@ GameObject:
   - component: {fileID: 2054221257}
   - component: {fileID: 2054221256}
   - component: {fileID: 2054221255}
+  - component: {fileID: 2054221260}
+  - component: {fileID: 2054221259}
   m_Layer: 0
   m_Name: wall_plane (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7547,6 +8513,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+--- !u!65 &2054221259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054221254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.000002384186, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2054221260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054221254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &2081172982
 GameObject:
   m_ObjectHideFlags: 0
@@ -7658,9 +8648,11 @@ GameObject:
   - component: {fileID: 2094743756}
   - component: {fileID: 2094743755}
   - component: {fileID: 2094743754}
+  - component: {fileID: 2094743759}
+  - component: {fileID: 2094743758}
   m_Layer: 0
   m_Name: wall_plane (19)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7734,6 +8726,30 @@ Transform:
   m_Father: {fileID: 2081172983}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
+--- !u!65 &2094743758
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2094743753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2094743759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2094743753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191bf2f40ca2b764fb96c468a58a7600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 434948748}
 --- !u!1 &2096395313
 GameObject:
   m_ObjectHideFlags: 0

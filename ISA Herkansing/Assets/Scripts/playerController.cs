@@ -44,7 +44,7 @@ public class playerController: MonoBehaviour {
         if (Input.GetMouseButton(0)) gunAnimator.SetInteger("gun_state", 1);
 	}
 
-	public void resetIdle()
+    public void resetIdle()
 	{
         // Resets the animation state to the idle animation.
 		gunAnimator.SetInteger("gun_state", 0);
