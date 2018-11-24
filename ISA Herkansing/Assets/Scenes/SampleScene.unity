@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 86373549}
   - component: {fileID: 86373543}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy_Ghost1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 3.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &86373546
 SpriteRenderer:
@@ -243,11 +243,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 434948748}
-  enemyRBody: {fileID: 86373548}
-  enemySpeed: 5
-  meleeRange: 10
-  attackRate: 2
+  enemySpeed: 10
+  meleeRange: 5
+  attackRate: 50
   meleeTimer: 5
+  ghostSP1: {fileID: 0}
+  ghostSP2: {fileID: 0}
+  ghostSP3: {fileID: 0}
+  distanceFromPlayer: 0
 --- !u!1 &99484233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,7 +1255,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 434948748}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 39.7, y: 15.78, z: 27.1}
+  m_LocalPosition: {x: 50.09, y: 16, z: -7.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2096395316}
@@ -1389,6 +1392,55 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467390428}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &482950313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 482950315}
+  - component: {fileID: 482950314}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &482950314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482950313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8617f2c9f23304d9e25a21b546ec45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemySpeed: 0
+  meleeRange: 0
+  attackRate: 0
+  meleeTimer: 0
+  ghostSP1: {fileID: 0}
+  ghostSP2: {fileID: 0}
+  ghostSP3: {fileID: 0}
+  distanceFromPlayer: 0
+--- !u!4 &482950315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482950313}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &503535350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,6 +3054,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 773561791}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &787282107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787282108}
+  m_Layer: 0
+  m_Name: GhostSP3
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &787282108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787282107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 54.2, y: 12, z: 34.8}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &828338218
 GameObject:
   m_ObjectHideFlags: 0
@@ -5089,6 +5169,34 @@ Transform:
   m_Father: {fileID: 1421888409}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1390476199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1390476200}
+  m_Layer: 0
+  m_Name: GhostSP2
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1390476200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390476199}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 61.9, y: 12, z: 49.4}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393256749
 GameObject:
   m_ObjectHideFlags: 0
@@ -6880,7 +6988,7 @@ GameObject:
   - component: {fileID: 1705665487}
   - component: {fileID: 1705665481}
   m_Layer: 0
-  m_Name: Enemy (2)
+  m_Name: Enemy_Ghost3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6908,7 +7016,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 3.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1705665484
 SpriteRenderer:
@@ -6996,11 +7104,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 434948748}
-  enemyRBody: {fileID: 86373548}
-  enemySpeed: 5
-  meleeRange: 10
-  attackRate: 2
+  enemySpeed: 10
+  meleeRange: 5
+  attackRate: 50
   meleeTimer: 5
+  ghostSP1: {fileID: 0}
+  ghostSP2: {fileID: 0}
+  ghostSP3: {fileID: 0}
+  distanceFromPlayer: 0
+--- !u!1 &1719393255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1719393256}
+  m_Layer: 0
+  m_Name: GhostSP1
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1719393256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719393255}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.9, y: 12, z: 48.1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776361965
 GameObject:
   m_ObjectHideFlags: 0
@@ -8303,7 +8442,7 @@ GameObject:
   - component: {fileID: 2001141255}
   - component: {fileID: 2001141249}
   m_Layer: 0
-  m_Name: Enemy (1)
+  m_Name: Enemy_Ghost2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8331,7 +8470,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 3.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2001141252
 SpriteRenderer:
@@ -8419,11 +8558,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 434948748}
-  enemyRBody: {fileID: 86373548}
-  enemySpeed: 5
-  meleeRange: 10
-  attackRate: 2
+  enemySpeed: 10
+  meleeRange: 5
+  attackRate: 50
   meleeTimer: 5
+  ghostSP1: {fileID: 0}
+  ghostSP2: {fileID: 0}
+  ghostSP3: {fileID: 0}
+  distanceFromPlayer: 0
 --- !u!1 &2054221254
 GameObject:
   m_ObjectHideFlags: 0
@@ -8761,6 +8903,7 @@ GameObject:
   - component: {fileID: 2096395315}
   - component: {fileID: 2096395314}
   - component: {fileID: 2096395317}
+  - component: {fileID: 2096395318}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -8783,8 +8926,8 @@ Camera:
   m_GameObject: {fileID: 2096395313}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.011771826, b: 0.066037714, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -8842,6 +8985,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 3
   smoothing: 1.125
+--- !u!45 &2096395318
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096395313}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 242659e784d5a42458e63de6bbe38d71, type: 2}
 --- !u!1 &2100018843
 GameObject:
   m_ObjectHideFlags: 0

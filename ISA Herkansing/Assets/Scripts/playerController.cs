@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class playerController: MonoBehaviour {
 
+    public static playerController instance = null;
+
+    public static int playerLives = 5;
     public float walkSpeed = 20f;
     public float sprintSpeed;
     public GameObject gun;
