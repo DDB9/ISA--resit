@@ -7,14 +7,15 @@ public class Enemy : MonoBehaviour {
 	public static Enemy instance = null;
 
 	public GameObject player;
-    public float enemySpeed;
+    public float enemySpeed = 10f;
 	public float meleeRange;
 	public float attackRate;
 	public float meleeTimer;
 	
     [SerializeField]
 	private float distanceFromPlayer;
-	private bool playerInSight;
+
+	public static bool playerInSight;
 
 	// Use this for initialization
 	void Start ()
@@ -29,12 +30,11 @@ public class Enemy : MonoBehaviour {
     {
         distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
         if (playerInSight == true) PlayerInRange();
-        else if (playerInSight == false) enemySpeed = 0;
 	}
 
     void OnTriggerStay(Collider other) { if (other.tag == "Player") playerInSight = true; } 
 
-	void OnTriggerExit(Collider other) { if (other.tag == "Player") playerInSight = false; }
+    void OnTriggerExit(Collider other) { if (other.tag == "Player") playerInSight = false; }
 
     public void PlayerInRange()
     {
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour {
         playerPos.y = transform.position.y;
         transform.LookAt(playerPos);
 
-        if (distanceFromPlayer >= meleeRange) transform.position += transform.forward * enemySpeed * Time.deltaTime;
+        if (distanceFromPlayer >= meleeRange) transform.position += transform.forward * enemySpeed * Time.deltaTime; 
         if (distanceFromPlayer <= meleeRange) DealDamage();
     }
 

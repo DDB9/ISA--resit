@@ -44,7 +44,7 @@ public class playerController: MonoBehaviour {
         else speed = walkSpeed;
 
         // Plays the shooting animation for the gun if the player clicks the left mouse button.
-        if (Input.GetMouseButton(0)) gunAnimator.SetInteger("gun_state", 1);
+        if (Input.GetMouseButtonDown(0)) gunAnimator.SetInteger("gun_state", 1);
 	}
 
     public void resetIdle()

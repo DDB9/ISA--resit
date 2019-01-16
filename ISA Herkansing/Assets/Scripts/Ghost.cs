@@ -16,13 +16,20 @@ public class Ghost : Enemy {
 	}
 
     // Update is called once per frame
-    private void OnTriggerExit(Collider other) { if (other.tag == "Player") PlayerOORange(); }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerOORange();
+            playerInSight = false;
+        }
+    }
 
     private void PlayerOORange()
     {
-        if (GameObject.Find("Enemy1")) transform.LookAt(ghostSP1.transform);
-        else if (GameObject.Find("Enemy2")) transform.LookAt(ghostSP2.transform);
-        else if (GameObject.Find("Enemy3")) transform.LookAt(ghostSP3.transform);
-        transform.position += transform.forward * enemySpeed * Time.deltaTime;
+        if (GameObject.Find("Enemy_Ghost1")) transform.LookAt(ghostSP1.transform);
+        else if (GameObject.Find("Enemy_Ghost2")) transform.LookAt(ghostSP2.transform);
+        else if (GameObject.Find("Enemy_Ghost3")) transform.LookAt(ghostSP3.transform);
+        Vector3.MoveTowards(this.transform.position, ghostSP1.transform.position, enemySpeed * Time.deltaTime);
     }
 }
