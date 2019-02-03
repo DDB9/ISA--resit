@@ -32,7 +32,7 @@ public class LampEditor : EditorWindow
             switch (lightIndex)
             {
                 case 0: // Creates the Flickering Light (Instantiate Prefab)
-                    GameObject flickeringLight = Resources.Load("Prefabs/Flickering Light") as GameObject;
+                    GameObject flickeringLight = Instantiate(Resources.Load("Assets/Prefabs/fLight.prefab") as GameObject, Vector3.zero, Quaternion.identity);
 
                     // if (GameObject.Find("Lights") != null) lt1.transform.parent = GameObject.Find("Lights").transform;
                     break;
@@ -41,6 +41,9 @@ public class LampEditor : EditorWindow
                     GameObject looseLight = new GameObject("New Loose Light");
                     Light lt2 = looseLight.AddComponent<Light>();
                     lt2.type = LightType.Spot;
+                    lt2.range = 17f;
+                    lt2.spotAngle = 63f;
+                    lt2.intensity = 15f;
 
                     if (GameObject.Find("Lights") != null) lt2.transform.parent = GameObject.Find("Lights").transform;
                     break;

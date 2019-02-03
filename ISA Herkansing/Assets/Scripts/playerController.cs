@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class playerController: MonoBehaviour {
+public class playerController : MonoBehaviour {
 
     public static playerController instance = null;
 

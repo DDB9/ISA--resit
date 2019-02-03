@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -18,6 +19,8 @@ public class Enemy : MonoBehaviour {
 
     private bool attacked = false;
 
+    [SerializeField]
+    private Image[] targetLives;
     [SerializeField]
     private float distanceFromPlayer;
 
@@ -67,6 +70,7 @@ public class Enemy : MonoBehaviour {
             yield return new WaitForSeconds(1.3f);
 
             Debug.Log("Attack!");
+            targetLives[targetLives.Length - 1].enabled = false; // ArrayIndexOutOfRange Error...? Try manual removal. (Custom gameobject fields).
             playerController.playerLives -= 1;
             Debug.Log(playerController.playerLives.ToString());
             if (playerController.playerLives <= 0) Debug.Log("YOU DIED");
