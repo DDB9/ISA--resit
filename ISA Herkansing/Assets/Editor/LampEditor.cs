@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class LampEditor : EditorWindow
-{
+public class LampEditor : EditorWindow {
+
     string[] lightTypes = new string[] { "Flickering Light", "Loose Light", "Normal Light" };
     int lightIndex = 0; 
 
     [MenuItem("Window/Lamp Editor")]
-    static void ShowWindow()
-    {
+    static void ShowWindow() {
         EditorWindow lampEditor = EditorWindow.GetWindow(typeof(LampEditor));
         lampEditor.Show();
     }
 
-    private void OnGUI()
-    {
+    private void OnGUI() {
         GUILayout.Label("Create a lamp", EditorStyles.boldLabel);
 
         GUILayout.Space(10f);
@@ -32,7 +30,8 @@ public class LampEditor : EditorWindow
             switch (lightIndex)
             {
                 case 0: // Creates the Flickering Light (Instantiate Prefab)
-                    GameObject flickeringLight = Instantiate(Resources.Load("Assets/Prefabs/fLight.prefab") as GameObject, Vector3.zero, Quaternion.identity);
+                    GameObject flickeringLight = Instantiate(Resources.Load("Assets/Prefabs/fLight.prefab") 
+                                                as GameObject, Vector3.zero, Quaternion.identity);
 
                     // if (GameObject.Find("Lights") != null) lt1.transform.parent = GameObject.Find("Lights").transform;
                     break;
