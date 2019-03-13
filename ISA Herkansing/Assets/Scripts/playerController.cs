@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
 
     public static playerController instance = null;
 
-    public static int playerLives = 5;
+    public int playerLives = 5;
+    public List<Image> imagePlayerLives = new List<Image>();
+    public Image bloodstains;
     public float walkSpeed = 20f;
     public float sprintSpeed;
-    public GameObject gun;
-
     [SerializeField]
     private float speed = 20;
 
-    Animator gunAnimator;
+    public GameObject gun;
+    private Animator gunAnimator;
 
     // Use this for initialization
     void Start()
@@ -46,6 +48,41 @@ public class playerController : MonoBehaviour {
 
         // Plays the shooting animation for the gun if the player clicks the left mouse button.
         if (Input.GetMouseButtonDown(0)) gunAnimator.SetInteger("gun_state", 1);
+
+        if (playerLives >= 5)
+        {
+            var tempColor = bloodstains.color;
+            tempColor.a = 0f;
+            bloodstains.color = tempColor;
+        }
+        if (playerLives == 4)
+        {
+            var tempColor = bloodstains.color;
+            tempColor.a = 0.1f;
+            bloodstains.color = tempColor;
+        }
+        if (playerLives == 3)
+        {
+            var tempColor = bloodstains.color;
+            tempColor.a = 0.25f;
+            bloodstains.color = tempColor;
+        }
+        if (playerLives == 2)
+        {
+            var tempColor = bloodstains.color;
+            tempColor.a = 0.45f;
+            bloodstains.color = tempColor;
+        }
+        if (playerLives == 1)
+        {
+            var tempColor = bloodstains.color;
+            tempColor.a = 0.65f;
+            bloodstains.color = tempColor;
+        }
+        if (playerLives <= 0)
+        {
+            SceneManager.LoadScene("Game Over");
+        }
 	}
 
     public void resetIdle()

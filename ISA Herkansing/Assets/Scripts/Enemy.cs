@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour {
 
     public static Enemy instance = null;
 
-    public GameObject player;
+    private playerController player;
+    
     public float enemySpeed = 10f;
     public float meleeRange;
     public float attackRate;
@@ -20,8 +21,6 @@ public class Enemy : MonoBehaviour {
     private bool attacked = false;
 
     [SerializeField]
-    private Image[] targetLives;
-    [SerializeField]
     private float distanceFromPlayer;
 
     public static bool playerInSight;
@@ -29,7 +28,7 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindObjectOfType<playerController>();
         //meleeTimer = Time.time + attackRate;
         playerInSight = false;
     }
@@ -51,14 +50,21 @@ public class Enemy : MonoBehaviour {
         playerPos.y = transform.position.y;
         transform.LookAt(playerPos);
 
-        if (distanceFromPlayer >= meleeRange) transform.position += transform.forward * enemySpeed * Time.deltaTime;
+        if (distanceFromPlayer >= meleeRange) 
+        {
+            transform.position += transform.forward * enemySpeed * Time.deltaTime;
+        }
+
         if (distanceFromPlayer <= meleeRange)
         {
-            meleeAttack = true;
-            if (!attacked)
+            if (player.playerLives >= 0)
             {
-                StartCoroutine("DealDamageOverTime");
-                attacked = true;
+                meleeAttack = true;
+                if (!attacked)
+                {
+                    StartCoroutine("DealDamageOverTime");
+                    attacked = true;
+                }
             }
         }
     }
@@ -67,13 +73,15 @@ public class Enemy : MonoBehaviour {
     {
         if (meleeAttack)
         {
-            yield return new WaitForSeconds(1.3f);
-
             Debug.Log("Attack!");
-            targetLives[targetLives.Length - 1].enabled = false; // ArrayIndexOutOfRange Error...? Try manual removal. (Custom gameobject fields).
-            playerController.playerLives -= 1;
-            Debug.Log(playerController.playerLives.ToString());
-            if (playerController.playerLives <= 0) Debug.Log("YOU DIED");
+            player.playerLives -= 1;
+            player.imagePlayerLives[player.imagePlayerLives.Count - 1].enabled = false;
+            player.imagePlayerLives.RemoveAt(player.imagePlayerLives.Count - 1);
+            Debug.Log(player.playerLives.ToString());
+            
+            yield return new WaitForSeconds(1.2f);
+
+            if (player.playerLives == 0) Debug.Log("YOU DIED");
 
             meleeAttack = false;
             attacked = false;
