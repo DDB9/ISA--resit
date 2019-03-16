@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
-    public static Enemy instance = null;
-
-    private playerController player;
+    private PlayerController player;
     
     public float enemySpeed = 10f;
     public float meleeRange;
@@ -25,11 +23,12 @@ public class Enemy : MonoBehaviour {
 
     public static bool playerInSight;
 
+    
+
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindObjectOfType<playerController>();
-        //meleeTimer = Time.time + attackRate;
+        player = FindObjectOfType<PlayerController>();
         playerInSight = false;
     }
 
@@ -50,7 +49,7 @@ public class Enemy : MonoBehaviour {
         playerPos.y = transform.position.y;
         transform.LookAt(playerPos);
 
-        if (distanceFromPlayer >= meleeRange) 
+        if (distanceFromPlayer > meleeRange) 
         {
             transform.position += transform.forward * enemySpeed * Time.deltaTime;
         }
@@ -80,8 +79,6 @@ public class Enemy : MonoBehaviour {
             Debug.Log(player.playerLives.ToString());
             
             yield return new WaitForSeconds(1.2f);
-
-            if (player.playerLives == 0) Debug.Log("YOU DIED");
 
             meleeAttack = false;
             attacked = false;

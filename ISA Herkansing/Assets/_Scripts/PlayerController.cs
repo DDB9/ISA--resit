@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class playerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
-    public static playerController instance = null;
+    public static PlayerController instance = null;
 
     public int playerLives = 5;
     public List<Image> imagePlayerLives = new List<Image>();
@@ -20,16 +20,14 @@ public class playerController : MonoBehaviour {
     private Animator gunAnimator;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         sprintSpeed = walkSpeed * 1.50f;
         Cursor.lockState = CursorLockMode.Locked;
         gunAnimator = gun.GetComponent<Animator>();
     }
 
-	// Update is called once per frame
-	void Update ()
-    {          
+    // Update is called once per frame
+    void Update() {
         // PLAYER MOVEMENT
         float translation = Input.GetAxis("Vertical") * speed;
         float straffe = Input.GetAxis("Horizontal") * speed;
@@ -43,52 +41,59 @@ public class playerController : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
 
         // If left-shift is pressed, player runs. Else, it walks.
-        if (Input.GetKey(KeyCode.LeftShift)) speed = sprintSpeed;
-        else speed = walkSpeed;
+        if (Input.GetKey(KeyCode.LeftShift))
+            speed = sprintSpeed;
+        else
+            speed = walkSpeed;
 
         // Plays the shooting animation for the gun if the player clicks the left mouse button.
-        if (Input.GetMouseButtonDown(0)) gunAnimator.SetInteger("gun_state", 1);
+        if (Input.GetMouseButtonDown(0)) {
+            gunAnimator.SetInteger("gun_state", 1);
 
-        if (playerLives >= 5)
-        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit)) {
+                if (hit.transform.CompareTag("enemy")) {
+                    Ghost ghost = hit.transform.GetComponent<Ghost>();
+                    ghost.TakeDamage(3);    // deals this much damage to the enemy if the player shot them.
+                }
+            }
+        }
+        //Visualizing playerlives. Will try to make this more efficient.
+        if (playerLives >= 5) {
             var tempColor = bloodstains.color;
             tempColor.a = 0f;
             bloodstains.color = tempColor;
         }
-        if (playerLives == 4)
-        {
+        if (playerLives == 4) {
             var tempColor = bloodstains.color;
             tempColor.a = 0.1f;
             bloodstains.color = tempColor;
         }
-        if (playerLives == 3)
-        {
+        if (playerLives == 3) {
             var tempColor = bloodstains.color;
             tempColor.a = 0.25f;
             bloodstains.color = tempColor;
         }
-        if (playerLives == 2)
-        {
+        if (playerLives == 2) {
             var tempColor = bloodstains.color;
             tempColor.a = 0.45f;
             bloodstains.color = tempColor;
         }
-        if (playerLives == 1)
-        {
+        if (playerLives == 1) {
             var tempColor = bloodstains.color;
             tempColor.a = 0.65f;
             bloodstains.color = tempColor;
         }
-        if (playerLives <= 0)
-        {
+        if (playerLives <= 0) {
             SceneManager.LoadScene("Game Over");
         }
-	}
+    }
 
-    public void resetIdle()
-	{
+    public void resetIdle() {
         // Resets the animation state to the idle animation.
-		gunAnimator.SetInteger("gun_state", 0);
-	}
+        gunAnimator.SetInteger("gun_state", 0);
+    }
 
 }
