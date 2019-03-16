@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit)) {
-                if (hit.transform.CompareTag("enemy")) {
+                if (hit.transform.CompareTag("Enemy")) {
                     Ghost ghost = hit.transform.GetComponent<Ghost>();
                     ghost.TakeDamage(3);    // deals this much damage to the enemy if the player shot them.
                 }

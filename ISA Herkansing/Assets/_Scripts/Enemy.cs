@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
-    private PlayerController player;
-    
+    public PlayerController player;
+    public GameManager manager;
+
     public float enemySpeed = 10f;
     public float meleeRange;
-    public float attackRate;
-    public float meleeTimer;
 
     // Declaring attack types.
     private bool meleeAttack = false;
@@ -19,31 +18,26 @@ public class Enemy : MonoBehaviour {
     private bool attacked = false;
 
     [SerializeField]
-    private float distanceFromPlayer;
+    public float distanceFromPlayer;
 
     public static bool playerInSight;
 
-    
-
-    // Use this for initialization
-    void Start()
+    private void Start() 
     {
         player = FindObjectOfType<PlayerController>();
-        playerInSight = false;
-    }
-
+    }   
+    
     // Update is called once per frame
     void Update()
     {
-        distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if (playerInSight == true) PlayerInRange();
+        if (playerInSight == true) Movement();
     }
 
     void OnTriggerStay(Collider other) { if (other.tag == "Player") playerInSight = true; }
 
     void OnTriggerExit(Collider other) { if (other.tag == "Player") playerInSight = false; }
 
-    public void PlayerInRange()
+    public virtual void Movement()  // Movement, hello?
     {
         Vector3 playerPos = player.transform.position;
         playerPos.y = transform.position.y;
