@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ghost : Enemy 
 {
+    public bool playerInSight;
 
     public int health = 10;
 
@@ -14,13 +15,36 @@ public class Ghost : Enemy
     }
 
     private void Update() 
-    {
+    {    // Update is called once per frame
+        if (playerInSight == true) currentState = State.Move;
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
+        CheckState();
     }
 
-    public override void Movement()
+    public virtual void Movement()  // Movement, hello?
     {
-        base.Movement();
+        Debug.Log("In sight!");
+        Vector3 playerPos = player.transform.position; 
+        playerPos.y = transform.position.y; // Make sure the object doesn't stat flying.
+        transform.LookAt(playerPos);
+
+        if (distanceFromPlayer > meleeRange) 
+        {
+            transform.position += transform.forward * enemySpeed * Time.deltaTime;
+        }
+
+        if (distanceFromPlayer <= meleeRange)
+        {
+            if (player.playerLives >= 0)
+            {
+                meleeAttack = true;
+                if (!attacked)
+                {
+                    StartCoroutine("DealDamageOverTime");
+                    attacked = true;
+                }
+            }
+        }
     }
 
     public void TakeDamage(int damage)

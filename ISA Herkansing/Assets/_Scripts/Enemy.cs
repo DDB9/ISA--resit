@@ -2,63 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
 
     public PlayerController player;
+    public Enemy target;
     public GameManager manager;
+
+    public enum State { Idle, Attack, Move }
+    public State currentState;
 
     public float enemySpeed = 10f;
     public float meleeRange;
+    public float senseRange = 5f; // Adjust this if the ghosts start to follow the player right away.
 
     // Declaring attack types.
-    private bool meleeAttack = false;
-    private bool rangedAttack = false;
+    public bool meleeAttack = false;
+    public bool rangedAttack = false;
 
-    private bool attacked = false;
+    public bool attacked = false;
 
     [SerializeField]
     public float distanceFromPlayer;
 
-    public static bool playerInSight;
+    private NavMeshAgent agent;
 
     private void Start() 
     {
         player = FindObjectOfType<PlayerController>();
-    }   
-    
-    // Update is called once per frame
-    void Update()
+        agent = GetComponent<NavMeshAgent>();
+    } 
+
+    public virtual void CheckState()
     {
-        if (playerInSight == true) Movement();
-    }
-
-    void OnTriggerStay(Collider other) { if (other.tag == "Player") playerInSight = true; }
-
-    void OnTriggerExit(Collider other) { if (other.tag == "Player") playerInSight = false; }
-
-    public virtual void Movement()  // Movement, hello?
-    {
-        Vector3 playerPos = player.transform.position;
-        playerPos.y = transform.position.y;
-        transform.LookAt(playerPos);
-
-        if (distanceFromPlayer > meleeRange) 
-        {
-            transform.position += transform.forward * enemySpeed * Time.deltaTime;
-        }
-
-        if (distanceFromPlayer <= meleeRange)
-        {
-            if (player.playerLives >= 0)
-            {
-                meleeAttack = true;
-                if (!attacked)
+        switch (currentState)
+        { // DECLARE STATE SWITCH CASES.
+            case State.Idle:    // RETURN ALL ENEMIES BACK TO THEIR ORIGINAL POSITION.
+                if (transform.name == "Enemy_Ghost1") 
                 {
-                    StartCoroutine("DealDamageOverTime");
-                    attacked = true;
+                    agent.SetDestination(transform.Find("GSP1").position);
+                    break;
                 }
-            }
+                if (transform.name == "Enemy_Ghost2")
+                {
+                    agent.SetDestination(transform.Find("GSP2").position);
+                    break;
+                }
+                if (transform.name == "Enemy_Ghost3")
+                {
+                    agent.SetDestination(transform.Find("GSP3").position);
+                    break;
+                }
+
+            break;
+            
+            case State.Move:
+                if (GetComponent<Ghost>().playerInSight == true){
+                    GetComponent<Ghost>().Movement();
+                    break;
+                }
+
+            break;
         }
     }
 

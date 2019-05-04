@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
+// Super simple finite state machine to figure out how it actually works.
+// I never used a finite state machine before, but I have used a behavior tree for my AI project.
 public enum State { Idle, Move, Attack }
 
 public class AI : MonoBehaviour {
 
     public State currentState;
     public float attackRange;
-    public float maxCooldown = 3;
-    public float senseRange = 10;
+    public float maxCooldown = 3f;
+    public float senseRange = 10f;
 
     private NavMeshAgent agent;
     private Enemy target;
@@ -40,6 +41,7 @@ public class AI : MonoBehaviour {
             foreach (Collider c in cols) {
                 if (c.gameObject == gameObject) {
                     continue;
+                    Debug.Log("Detected!");
                 }
 
                 Enemy hp = c.gameObject.GetComponent<Ghost>();
