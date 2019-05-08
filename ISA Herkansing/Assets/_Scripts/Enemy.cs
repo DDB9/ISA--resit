@@ -7,8 +7,9 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour {
 
     public PlayerController player;
-    public Enemy target;
     public GameManager manager;
+
+    public Transform[] spawnPoints;
 
     public enum State { Idle, Attack, Move }
     public State currentState;
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour {
     {
         player = FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
+        currentState = State.Idle;
     } 
 
     public virtual void CheckState()
@@ -41,17 +43,17 @@ public class Enemy : MonoBehaviour {
             case State.Idle:    // RETURN ALL ENEMIES BACK TO THEIR ORIGINAL POSITION.
                 if (transform.name == "Enemy_Ghost1") 
                 {
-                    agent.SetDestination(transform.Find("GSP1").position);
-                    break;
+                    agent.SetDestination(spawnPoints[0].position);  // For some reason it just doesn't see these points, so just let them wander around
+                    break;                                          // When they are in the idle state.
                 }
                 if (transform.name == "Enemy_Ghost2")
                 {
-                    agent.SetDestination(transform.Find("GSP2").position);
+                    agent.SetDestination(spawnPoints[1].position);
                     break;
                 }
                 if (transform.name == "Enemy_Ghost3")
                 {
-                    agent.SetDestination(transform.Find("GSP3").position);
+                    agent.SetDestination(spawnPoints[2].position);
                     break;
                 }
 

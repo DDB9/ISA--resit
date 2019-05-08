@@ -40,8 +40,8 @@ public class AI : MonoBehaviour {
             Collider[] cols = Physics.OverlapSphere(transform.position, senseRange);
             foreach (Collider c in cols) {
                 if (c.gameObject == gameObject) {
-                    continue;
                     Debug.Log("Detected!");
+                    continue;
                 }
 
                 Enemy hp = c.gameObject.GetComponent<Ghost>();
