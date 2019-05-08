@@ -181,8 +181,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
-  target: {fileID: 0}
   manager: {fileID: 0}
+  spawnPoints:
+  - {fileID: 1816400096}
+  - {fileID: 1907027665}
+  - {fileID: 666985965}
   currentState: 0
   enemySpeed: 10
   meleeRange: 5
@@ -8927,8 +8930,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
-  target: {fileID: 0}
   manager: {fileID: 0}
+  spawnPoints:
+  - {fileID: 1816400096}
+  - {fileID: 1907027665}
+  - {fileID: 666985965}
   currentState: 0
   enemySpeed: 10
   meleeRange: 5
@@ -11014,8 +11020,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
-  target: {fileID: 0}
   manager: {fileID: 0}
+  spawnPoints:
+  - {fileID: 1816400096}
+  - {fileID: 1907027665}
+  - {fileID: 666985965}
   currentState: 0
   enemySpeed: 10
   meleeRange: 5
