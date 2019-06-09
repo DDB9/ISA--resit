@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
 
     public static PlayerController instance = null;
-
     public int playerLives = 5;
     public List<Image> imagePlayerLives = new List<Image>();
+    [Space]
     public Image bloodstains;
     public float walkSpeed = 20f;
     public float sprintSpeed;

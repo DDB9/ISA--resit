@@ -181,9 +181,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
   manager: {fileID: 1725950127}
+  currentState: 1
   enemySpeed: 10
-  meleeRange: 0
+  meleeRange: 5.5
+  meleeAttack: 0
+  attacked: 0
   distanceFromPlayer: 0
+  engageDistance: 35
   health: 10
 --- !u!212 &86373546
 SpriteRenderer:
@@ -3495,6 +3499,11 @@ PrefabInstance:
     - target: {fileID: 4807509023396406, guid: ef3fe865e12c6fa4fa45fb46ca956bbd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114769619535591258, guid: ef3fe865e12c6fa4fa45fb46ca956bbd,
+        type: 3}
+      propertyPath: rotSpeed
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef3fe865e12c6fa4fa45fb46ca956bbd, type: 3}
@@ -8969,9 +8978,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
   manager: {fileID: 1725950127}
+  currentState: 0
   enemySpeed: 10
-  meleeRange: 0
+  meleeRange: 5.5
+  meleeAttack: 0
+  attacked: 0
   distanceFromPlayer: 0
+  engageDistance: 0
   health: 10
 --- !u!212 &1705665484
 SpriteRenderer:
@@ -9148,10 +9161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitDoor: {fileID: 477949486}
-  enemies:
-  - {fileID: 86373545}
-  - {fileID: 2001141251}
-  - {fileID: 1705665483}
+  enemies: []
 --- !u!4 &1725950128
 Transform:
   m_ObjectHideFlags: 0
@@ -10790,9 +10800,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
   manager: {fileID: 1725950127}
+  currentState: 0
   enemySpeed: 10
-  meleeRange: 0
+  meleeRange: 5.5
+  meleeAttack: 0
+  attacked: 0
   distanceFromPlayer: 0
+  engageDistance: 0
   health: 10
 --- !u!212 &2001141252
 SpriteRenderer:

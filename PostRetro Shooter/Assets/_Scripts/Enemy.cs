@@ -3,42 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum EnemyState {IDLE, ENGAGE, ATTACK}
+
 public class Enemy : MonoBehaviour {
 
     public PlayerController player;
     public GameManager manager;
 
+    public EnemyState currentState;
     public float enemySpeed = 10f;
     public float meleeRange;
 
-    // Declaring attack types.
-    private bool meleeAttack = false;
-    private bool rangedAttack = false;
+    public bool meleeAttack = false;
+    // private bool rangedAttack = false;
 
-    private bool attacked = false;
+    public bool attacked = false;
 
-    [SerializeField]
     public float distanceFromPlayer;
+    public float engageDistance;
 
     public static bool playerInSight;
 
-    private void Start() 
-    {
+    private void Start() {
         player = FindObjectOfType<PlayerController>();
+        currentState = EnemyState.IDLE;
     }   
-    
-    // Update is called once per frame
-    void Update()
-    {
-        if (playerInSight == true) Movement();
-    }
 
-    void OnTriggerStay(Collider other) { if (other.tag == "Player") playerInSight = true; }
+    public virtual void Movement() {
 
-    void OnTriggerExit(Collider other) { if (other.tag == "Player") playerInSight = false; }
-
-    public virtual void Movement()  // Movement, hello?
-    {
+        currentState = EnemyState.ENGAGE;
         Vector3 playerPos = player.transform.position;
         playerPos.y = transform.position.y;
         transform.LookAt(playerPos);
@@ -48,36 +41,26 @@ public class Enemy : MonoBehaviour {
             transform.position += transform.forward * enemySpeed * Time.deltaTime;
         }
 
-        if (distanceFromPlayer <= meleeRange)
-        {
-            if (player.playerLives >= 0)
-            {
+        if (distanceFromPlayer <= meleeRange) {
+            if (player.playerLives > 0) {
                 meleeAttack = true;
-                if (!attacked)
-                {
-                    StartCoroutine("DealDamageOverTime");
-                    attacked = true;
-                }
+                currentState = EnemyState.ATTACK;
             }
         }
     }
 
-    IEnumerator DealDamageOverTime()
-    {
-        if (meleeAttack)
-        {
+    public virtual IEnumerator DealDamageOverTime() {
+        if (meleeAttack) {
             Debug.Log("Attack!");
             player.playerLives -= 1;
             player.imagePlayerLives[player.imagePlayerLives.Count - 1].enabled = false;
             player.imagePlayerLives.RemoveAt(player.imagePlayerLives.Count - 1);
-            Debug.Log(player.playerLives.ToString());
-            
+
             yield return new WaitForSeconds(1.2f);
 
             meleeAttack = false;
             attacked = false;
         }
-
     }
 }
                                         
