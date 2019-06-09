@@ -130,7 +130,6 @@ GameObject:
   m_Component:
   - component: {fileID: 86373547}
   - component: {fileID: 86373546}
-  - component: {fileID: 86373544}
   - component: {fileID: 86373548}
   - component: {fileID: 86373543}
   - component: {fileID: 86373545}
@@ -154,19 +153,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &86373544
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86373542}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.4
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &86373545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
   manager: {fileID: 1725950127}
-  currentState: 1
+  currentState: 0
   enemySpeed: 10
   meleeRange: 5.5
   meleeAttack: 0
@@ -8927,7 +8913,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1705665485}
   - component: {fileID: 1705665484}
-  - component: {fileID: 1705665482}
   - component: {fileID: 1705665486}
   - component: {fileID: 1705665481}
   - component: {fileID: 1705665483}
@@ -8951,19 +8936,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &1705665482
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705665480}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.4
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1705665483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8984,7 +8956,7 @@ MonoBehaviour:
   meleeAttack: 0
   attacked: 0
   distanceFromPlayer: 0
-  engageDistance: 0
+  engageDistance: 35
   health: 10
 --- !u!212 &1705665484
 SpriteRenderer:
@@ -10749,7 +10721,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2001141253}
   - component: {fileID: 2001141252}
-  - component: {fileID: 2001141250}
   - component: {fileID: 2001141254}
   - component: {fileID: 2001141249}
   - component: {fileID: 2001141251}
@@ -10773,19 +10744,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &2001141250
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001141248}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.4
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2001141251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10806,7 +10764,7 @@ MonoBehaviour:
   meleeAttack: 0
   attacked: 0
   distanceFromPlayer: 0
-  engageDistance: 0
+  engageDistance: 35
   health: 10
 --- !u!212 &2001141252
 SpriteRenderer:

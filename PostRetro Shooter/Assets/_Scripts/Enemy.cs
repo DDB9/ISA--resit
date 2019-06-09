@@ -36,8 +36,7 @@ public class Enemy : MonoBehaviour {
         playerPos.y = transform.position.y;
         transform.LookAt(playerPos);
 
-        if (distanceFromPlayer > meleeRange) 
-        {
+        if (distanceFromPlayer > meleeRange) {
             transform.position += transform.forward * enemySpeed * Time.deltaTime;
         }
 
@@ -60,6 +59,7 @@ public class Enemy : MonoBehaviour {
 
             meleeAttack = false;
             attacked = false;
+            currentState = EnemyState.ENGAGE;
         }
     }
 }
