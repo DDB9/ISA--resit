@@ -43,10 +43,9 @@ public class Ghost : Enemy {
     public void TakeDamage(int damage)
     {
         health = health - damage;
-        if (health <= 0) 
-        {
-            Destroy(this.gameObject);
+        if (health <= 0) {
             manager.enemies.RemoveAt(0);
+            Destroy(this.gameObject);
         }
     }
 }
