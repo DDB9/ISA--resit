@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
         if (ammo <= 0) hasAmmo = false;
         if (Input.GetKeyDown("r")) StartCoroutine("ReloadDelay");
 
-        // Makes the cursor re-appear for menu purposes.
+        // Makes the cursor re-appear for menu purposes. REMOVE WHEN BUILDING.
         if (Input.GetKeyDown("escape")) Cursor.lockState = CursorLockMode.None;
 
         // If left-shift is pressed, player runs. Else, it walks.
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
             if (Physics.Raycast(ray, out hit)) {
                 if (manager.enemies.Contains(hit.transform.GetComponent<Enemy>()) && !hasHit) {
                     hasHit = true;
-                    Ghost ghost = hit.transform.GetComponent<Ghost>();
+                    Enemy ghost = hit.transform.GetComponent<Enemy>();
                     ghost.TakeDamage(3);          // deals this much damage to the enemy if the player shot them.
                     StartCoroutine("ShootDelay"); // inflicts a delay so that the player does not actually shoot when the animation is still playing.
                 }

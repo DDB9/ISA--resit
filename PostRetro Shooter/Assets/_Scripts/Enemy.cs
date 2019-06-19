@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum EnemyState {IDLE, ENGAGE, ATTACK}
+public enum EnemyState {IDLE, ENGAGE, ATTACK, HATCH}
 
 public class Enemy : MonoBehaviour {
 
     public PlayerController player;
     public GameManager manager;
 
+    public int health = 10;
+
     public EnemyState currentState;
     public float enemySpeed = 10f;
     public float meleeRange;
-
-    public bool meleeAttack = false;
-    // private bool rangedAttack = false;
 
     public bool attacked = false;
 
@@ -26,12 +25,12 @@ public class Enemy : MonoBehaviour {
 
     private void Start() {
         player = FindObjectOfType<PlayerController>();
+        manager = FindObjectOfType<GameManager>();
+
         currentState = EnemyState.IDLE;
     }   
 
     public virtual void Movement() {
-
-        currentState = EnemyState.ENGAGE;
         Vector3 playerPos = player.transform.position;
         playerPos.y = transform.position.y;
         transform.LookAt(playerPos);
@@ -42,24 +41,47 @@ public class Enemy : MonoBehaviour {
 
         if (distanceFromPlayer <= meleeRange) {
             if (player.playerLives > 0) {
-                meleeAttack = true;
                 currentState = EnemyState.ATTACK;
             }
         }
     }
 
     public virtual IEnumerator DealDamageOverTime() {
-        if (meleeAttack) {
-            Debug.Log("Attack!");
-            player.playerLives -= 1;
-            player.imagePlayerLives[player.imagePlayerLives.Count - 1].enabled = false;
-            player.imagePlayerLives.RemoveAt(player.imagePlayerLives.Count - 1);
+        player.playerLives -= 1;
+        player.imagePlayerLives[player.imagePlayerLives.Count - 1].enabled = false;
+        player.imagePlayerLives.RemoveAt(player.imagePlayerLives.Count - 1);
 
-            yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.2f);
 
-            meleeAttack = false;
-            attacked = false;
-            currentState = EnemyState.ENGAGE;
+        attacked = false;
+        currentState = EnemyState.ENGAGE;
+    }
+
+    public virtual void TakeDamage(int damage) {
+        health = health - damage;
+        if (health <= 0) {
+            manager.enemies.RemoveAt(0);
+            Destroy(this.gameObject);
+        }
+    }
+
+    public virtual void CheckState() {
+        switch (currentState) {
+            case EnemyState.IDLE:
+                // do nothing, for now.
+                // might send them back to spawnpoint?
+                break;
+
+            case EnemyState.ENGAGE:
+                Movement();
+                break;
+
+            case EnemyState.ATTACK:
+                if (!attacked) {
+                    StartCoroutine("DealDamageOverTime");
+                    attacked = true;
+                }
+                break;
         }
     }
 }
