@@ -167,14 +167,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
   manager: {fileID: 1725950127}
+  health: 10
   currentState: 0
   enemySpeed: 10
   meleeRange: 5.5
-  meleeAttack: 0
   attacked: 0
   distanceFromPlayer: 0
   engageDistance: 35
-  health: 10
 --- !u!212 &86373546
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -213,7 +212,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f2eccd3afc04d784f83a40845817c6ab, type: 3}
-  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.73333335}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1668,6 +1667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cc2abb33588b642922f9ebceb48e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   playerLives: 5
   ammo: 10
   imagePlayerLives:
@@ -9031,14 +9031,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
   manager: {fileID: 1725950127}
+  health: 10
   currentState: 0
   enemySpeed: 10
   meleeRange: 5.5
-  meleeAttack: 0
   attacked: 0
   distanceFromPlayer: 0
   engageDistance: 35
-  health: 10
 --- !u!212 &1705665484
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9077,7 +9076,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f2eccd3afc04d784f83a40845817c6ab, type: 3}
-  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.73333335}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10919,14 +10918,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 434948751}
   manager: {fileID: 1725950127}
+  health: 10
   currentState: 0
   enemySpeed: 10
   meleeRange: 5.5
-  meleeAttack: 0
   attacked: 0
   distanceFromPlayer: 0
   engageDistance: 35
-  health: 10
 --- !u!212 &2001141252
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10965,7 +10963,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f2eccd3afc04d784f83a40845817c6ab, type: 3}
-  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.73333335}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

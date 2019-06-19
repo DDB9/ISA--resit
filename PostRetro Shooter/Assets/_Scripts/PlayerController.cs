@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject gun;
     private Animator gunAnimator;
 
+    public delegate void ChangeEnemyColor(Enemy enemy); // declaring the damage delegate...
+    public static event ChangeEnemyColor OnEnemyHit;       // ... and event.
+
     private bool hasHit;
     private bool hasAmmo = true;
 
@@ -61,13 +64,18 @@ public class PlayerController : MonoBehaviour {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit)) {
-                if (manager.enemies.Contains(hit.transform.GetComponent<Enemy>()) && !hasHit) {
+                if (hit.transform.CompareTag("Enemy") && !hasHit) {
                     hasHit = true;
+
+                    if (OnEnemyHit != null) {               // If event has listeners, then execute said event.
+                        OnEnemyHit(hit.transform.GetComponent<Enemy>());
+                    }
+
                     Enemy ghost = hit.transform.GetComponent<Enemy>();
-                    ghost.TakeDamage(3);          // deals this much damage to the enemy if the player shot them.
-                    StartCoroutine("ShootDelay"); // inflicts a delay so that the player does not actually shoot when the animation is still playing.
+                    ghost.TakeDamage(3);                                // deals this much damage to the enemy if the player shot them.
+                    StartCoroutine("ShootDelay");                       // inflicts a delay so that the player does not actually shoot when the animation is still playing.
                 }
-                if (!manager.enemies.Contains(hit.transform.GetComponent<Enemy>()) && !hasHit) {
+                if (!hit.transform.CompareTag("Enemy") && !hasHit) {
                     hasHit = true;
                     StartCoroutine("ShootDelay");
                 }

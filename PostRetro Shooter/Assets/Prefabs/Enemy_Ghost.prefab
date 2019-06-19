@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4710648487251808138}
   - component: {fileID: 4710648487251808132}
   m_Layer: 0
-  m_Name: Enemy_Ghost1
-  m_TagString: Untagged
+  m_Name: Enemy_Ghost
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f2eccd3afc04d784f83a40845817c6ab, type: 3}
-  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.73333335}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,7 +129,6 @@ MonoBehaviour:
   currentState: 0
   enemySpeed: 10
   meleeRange: 5.5
-  meleeAttack: 0
   attacked: 0
   distanceFromPlayer: 0
   engageDistance: 35
