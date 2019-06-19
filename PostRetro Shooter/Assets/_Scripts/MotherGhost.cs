@@ -10,6 +10,8 @@ public class MotherGhost : Enemy {
 
     // Start is called before the first frame update
     void Start() {
+        PlayerController.OnEnemyHit += ChangeColorOnHit;
+
         enemySpeed = 6f;
         health = 21;
     }
@@ -58,5 +60,21 @@ public class MotherGhost : Enemy {
         manager.enemies.Add(ghost.GetComponent<Enemy>());
 
         hatching = false;
+    }
+
+    public void ChangeColorOnHit(Enemy enemy) {    // Why isn't IEnumerator possible? Invoke instead of simply calling?
+        StartCoroutine("ChangeColor", enemy);
+    }
+
+    public IEnumerator ChangeColor(Enemy enemy) {
+        if (this != null) {
+            enemy.GetComponent<SpriteRenderer>().color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            enemy.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
+    private void OnDisable() {
+        PlayerController.OnEnemyHit -= ChangeColorOnHit;
     }
 }
