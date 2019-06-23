@@ -28,7 +28,8 @@ public class MotherGhost : Enemy {
             currentState = EnemyState.HATCH;
         }
     }
-    
+
+    // the ghost deals damage over time to the player when in range.
     public override IEnumerator DealDamageOverTime() {
         player.playerLives -= 2;
         player.imagePlayerLives[player.imagePlayerLives.Count - 1].enabled = false;
@@ -40,6 +41,7 @@ public class MotherGhost : Enemy {
         currentState = EnemyState.ENGAGE;
     }
 
+    // checks the state of the ghost's AI.
     public override void CheckState() {
         base.CheckState();
 
@@ -52,6 +54,7 @@ public class MotherGhost : Enemy {
         }
     }
 
+    // the mother ghost hatches a new ghost every 8 seconds.
     IEnumerator HatchGhostling() {
         hatching = true;
 
@@ -66,6 +69,7 @@ public class MotherGhost : Enemy {
         StartCoroutine("ChangeColor", enemy);
     }
 
+    // changes the Enemy Color on hit.
     public IEnumerator ChangeColor(Enemy enemy) {
         if (this != null) {
             enemy.GetComponent<SpriteRenderer>().color = Color.red;
@@ -74,7 +78,8 @@ public class MotherGhost : Enemy {
         }
     }
 
+    // activates if object becomes inactive or is destroyed.
     private void OnDisable() {
-        PlayerController.OnEnemyHit -= ChangeColorOnHit;
+        PlayerController.OnEnemyHit -= ChangeColorOnHit;    // unsubscribes from the OnEnemyHit event.
     }
 }

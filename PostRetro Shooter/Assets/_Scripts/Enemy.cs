@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour {
 
     public PlayerController player;
     public GameManager manager;
-
-    public int health = 10;
+    
+    public float health = 10f;
 
     public EnemyState currentState;
     public float enemySpeed = 10f;
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour {
         currentState = EnemyState.ENGAGE;
     }
 
-    public virtual void TakeDamage(int damage) {
+    public virtual void TakeDamage(float damage) {
         health = health - damage;
         if (health <= 0) {
             manager.enemies.RemoveAt(0);

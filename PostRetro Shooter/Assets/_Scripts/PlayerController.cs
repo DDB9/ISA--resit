@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     [Space]
     public Image bloodstains;
     public Text ammoDisplay;
+    public float gunDamage;
     public float walkSpeed = 20f;
     public float sprintSpeed;
     [SerializeField]
@@ -72,8 +73,8 @@ public class PlayerController : MonoBehaviour {
                     }
 
                     Enemy ghost = hit.transform.GetComponent<Enemy>();
-                    ghost.TakeDamage(3);                                // deals this much damage to the enemy if the player shot them.
-                    StartCoroutine("ShootDelay");                       // inflicts a delay so that the player does not actually shoot when the animation is still playing.
+                    ghost.TakeDamage(gunDamage);                                // deals this much damage to the enemy if the player shot them.
+                    StartCoroutine("ShootDelay");
                 }
                 if (!hit.transform.CompareTag("Enemy") && !hasHit) {
                     hasHit = true;

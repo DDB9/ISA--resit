@@ -1678,6 +1678,7 @@ MonoBehaviour:
   - {fileID: 1173369002}
   bloodstains: {fileID: 1169079200}
   ammoDisplay: {fileID: 342390753}
+  gunDamage: 3
   walkSpeed: 20
   sprintSpeed: 0
   speed: 20

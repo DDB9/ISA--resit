@@ -27,6 +27,7 @@ public class Ghost : Enemy {
         StartCoroutine("ChangeColor", enemy);
     }
 
+    // changes the color of the ghost on hit for 0.1 seconds.
     public IEnumerator ChangeColor(Enemy enemy) {
         if (this != null) {
             enemy.GetComponent<SpriteRenderer>().color = Color.red;
@@ -35,7 +36,8 @@ public class Ghost : Enemy {
         }
     }
 
+    // activates when the object is inactive or destroyed.
     private void OnDisable() {
-        PlayerController.OnEnemyHit -= ChangeColorOnHit;
+        PlayerController.OnEnemyHit -= ChangeColorOnHit;    // unsubscribes from the OnEnemyHit event.
     }
 }
